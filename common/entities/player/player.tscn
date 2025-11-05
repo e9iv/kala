@@ -1,0 +1,285 @@
+[gd_scene load_steps=33 format=3 uid="uid://dv2y6ep4rn02m"]
+
+[ext_resource type="Script" uid="uid://df5pt7f0i73bp" path="res://common/entities/player/player.gd" id="1_xgdtg"]
+[ext_resource type="Texture2D" uid="uid://xxbfq32q4hq3" path="res://assets/sprites/player/idle/idle1.png" id="1_ycebg"]
+[ext_resource type="Texture2D" uid="uid://6uvvrvdoirtw" path="res://assets/sprites/player/idle/idle2.png" id="2_xgdtg"]
+[ext_resource type="Texture2D" uid="uid://cpyqxdfjdohoo" path="res://assets/sprites/player/idle/idle3.png" id="3_1w84m"]
+[ext_resource type="Script" uid="uid://dsx3t7hcf6dme" path="res://common/tools/hammer/hammer.gd" id="5_2ej7x"]
+[ext_resource type="Texture2D" uid="uid://crp7ntpxsiwax" path="res://assets/sprites/player/run/run1.png" id="5_6p6t1"]
+[ext_resource type="Texture2D" uid="uid://bc3anudoax8h6" path="res://assets/sprites/hammer/hammer.png" id="5_fipa4"]
+[ext_resource type="Texture2D" uid="uid://bf4l0xbhae5da" path="res://assets/sprites/hammer/outline.png" id="6_2ej7x"]
+[ext_resource type="Texture2D" uid="uid://y20l2fwhs3wx" path="res://assets/sprites/player/run/run2.png" id="6_ffvmj"]
+[ext_resource type="Texture2D" uid="uid://dbx0rhyhej0fr" path="res://assets/sprites/player/run/run3.png" id="7_eb250"]
+[ext_resource type="Script" uid="uid://llcdxmdgm8mw" path="res://common/tools/axe/axe.gd" id="8_48pte"]
+[ext_resource type="Texture2D" uid="uid://c5yvw0wyh4133" path="res://assets/sprites/player/run/run4.png" id="8_hsph6"]
+[ext_resource type="AudioStream" uid="uid://dw846omue0ppl" path="res://assets/audio/tools/Hammer1.wav" id="8_k6j0s"]
+[ext_resource type="Texture2D" uid="uid://q3h0c0lj3rk4" path="res://assets/sprites/axe/axe.png" id="8_v4x7u"]
+[ext_resource type="Texture2D" uid="uid://dd5lq4sou3o2t" path="res://assets/sprites/player/run/run5.png" id="9_37dba"]
+[ext_resource type="Texture2D" uid="uid://b7w2tn5ynbopx" path="res://assets/sprites/axe/outline.png" id="9_48pte"]
+[ext_resource type="AudioStream" uid="uid://dqa24t8tulb17" path="res://assets/audio/WoodSnap5.wav" id="9_f6auq"]
+[ext_resource type="Texture2D" uid="uid://2vaevac80al" path="res://assets/sprites/player/run/run6.png" id="10_2s4ah"]
+[ext_resource type="Shader" uid="uid://cchugkbmna244" path="res://shaders/posterization.gdshader" id="11_k1tyo"]
+[ext_resource type="Texture2D" uid="uid://bc4vb34dhmgvk" path="res://assets/sprites/player/run/run7.png" id="11_tnw0h"]
+[ext_resource type="Texture2D" uid="uid://3aivrksfkkb1" path="res://assets/sprites/player/run/run8.png" id="12_nvl7w"]
+[ext_resource type="Texture2D" uid="uid://b3borbefyc5ns" path="res://assets/sprites/ui/cursor.png" id="16_mp3el"]
+[ext_resource type="Script" uid="uid://3yx1nori2cxf" path="res://common/HUD/cursor.gd" id="17_h7vm3"]
+[ext_resource type="Texture2D" uid="uid://g7myi0geydj6" path="res://assets/sprites/ui/wood.png" id="24_6p6t1"]
+[ext_resource type="FontFile" uid="uid://c042yjp2el708" path="res://assets/fonts/m3x6.ttf" id="25_ffvmj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fipa4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ycebg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xgdtg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1w84m")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6p6t1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ffvmj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_eb250")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hsph6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_37dba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2s4ah")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_tnw0h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_nvl7w")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ycebg"]
+radius = 2.0
+height = 4.0
+
+[sub_resource type="Animation" id="Animation_54a1w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Hammer/Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../Hammer/HammerNail1:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_h7vm3"]
+resource_name = "build_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.1, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.53449804, -0.6161012, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Hammer/Sprite2D:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.066509515, 0.13301903),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.150172, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../Hammer/HammerNail1:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k7637"]
+_data = {
+&"RESET": SubResource("Animation_54a1w"),
+&"build_right": SubResource("Animation_h7vm3")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_eb250"]
+font = ExtResource("25_ffvmj")
+outline_size = 4
+outline_color = Color(0.07450981, 0.07450981, 0.07450981, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e2qll"]
+shader = ExtResource("11_k1tyo")
+shader_parameter/dither_strength = 0.05
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_xgdtg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fipa4")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_ycebg")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+
+[node name="Hammer" type="Node2D" parent="."]
+visible = false
+position = Vector2(-2, 0)
+script = ExtResource("5_2ej7x")
+
+[node name="Sprite2D" type="Sprite2D" parent="Hammer"]
+z_index = 1
+texture = ExtResource("5_fipa4")
+offset = Vector2(3, -1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Hammer/Sprite2D"]
+z_index = -2
+position = Vector2(3, -1)
+texture = ExtResource("6_2ej7x")
+
+[node name="HammerNail1" type="AudioStreamPlayer" parent="Hammer"]
+stream = ExtResource("8_k6j0s")
+
+[node name="WoodSnap5" type="AudioStreamPlayer" parent="Hammer"]
+stream = ExtResource("9_f6auq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hammer"]
+root_node = NodePath("../../HUD/Cursor")
+libraries = {
+&"": SubResource("AnimationLibrary_k7637")
+}
+
+[node name="BuildModeHUD" type="CanvasLayer" parent="Hammer"]
+visible = false
+
+[node name="WoodCounter" type="HBoxContainer" parent="Hammer/BuildModeHUD"]
+offset_left = 8.0
+offset_right = 48.0
+offset_bottom = 23.0
+
+[node name="TextureRect" type="TextureRect" parent="Hammer/BuildModeHUD/WoodCounter"]
+layout_mode = 2
+texture = ExtResource("24_6p6t1")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="Hammer/BuildModeHUD/WoodCounter"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_eb250")
+
+[node name="Axe" type="Node2D" parent="."]
+visible = false
+position = Vector2(-2, 0)
+script = ExtResource("8_48pte")
+
+[node name="Sprite2D" type="Sprite2D" parent="Axe"]
+texture = ExtResource("8_v4x7u")
+offset = Vector2(3, -1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Axe/Sprite2D"]
+z_index = -1
+position = Vector2(3, -1)
+texture = ExtResource("9_48pte")
+
+[node name="PostProcessing" type="CanvasLayer" parent="."]
+
+[node name="Posterization" type="ColorRect" parent="PostProcessing"]
+material = SubResource("ShaderMaterial_e2qll")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Cursor" type="Sprite2D" parent="HUD"]
+texture = ExtResource("16_mp3el")
+hframes = 3
+script = ExtResource("17_h7vm3")
