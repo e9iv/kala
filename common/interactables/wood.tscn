@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://doodb5wrshrrw"]
+
+[ext_resource type="Texture2D" uid="uid://g7myi0geydj6" path="res://assets/sprites/ui/wood.png" id="1_uxr24"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jufvl"]
+
+[node name="Wood" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+texture = ExtResource("1_uxr24")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jufvl")

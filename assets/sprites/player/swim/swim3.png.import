@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d04o5dlub3xuo"
-path="res://.godot/imported/tileset.png-e4a68321d7c0d06bc7a995f9ccf1e807.ctex"
+uid="uid://ot1hn7781o3s"
+path="res://.godot/imported/swim3.png-cf979b2a4b7d3ee089de37077c511a52.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/tileset/tileset.png"
-dest_files=["res://.godot/imported/tileset.png-e4a68321d7c0d06bc7a995f9ccf1e807.ctex"]
+source_file="res://assets/sprites/player/swim/swim3.png"
+dest_files=["res://.godot/imported/swim3.png-cf979b2a4b7d3ee089de37077c511a52.ctex"]
 
 [params]
 

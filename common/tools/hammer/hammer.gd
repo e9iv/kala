@@ -43,34 +43,38 @@ func _process(delta: float) -> void:
 			$BuildModeHUD.visible = true
 	
 	if Input.is_action_just_pressed("lmb"):
-		if !visible:
-			return
-		if !can_build:
-			return
-		else:
-			can_build = false
-			var cell = tilemaplayer.local_to_map(tilemaplayer.to_local(mouse_pos))
-			tilemaplayer.set_cells_terrain_connect([cell], 0, 0)
-			animation_player.play("build_right")
-			await animation_player.animation_finished
-			can_build = true
+		build()
+
 	if Input.is_action_just_pressed("rmb"):
-		if !visible:
-			return
-		if !can_break:
-			return
-		else:
-			can_break = false
-			var cell = tilemaplayer.local_to_map(tilemaplayer.to_local(mouse_pos))
-			tilemaplayer.erase_cell(cell)
-			tilemaplayer.set_cells_terrain_connect([cell], 0, -1, false)
-			$WoodSnap5.play()
-			await $WoodSnap5.finished
-			can_break = true
+		destroy()
+
 
 
 func build() -> void:
-	pass
+	var mouse_pos = get_global_mouse_position()
+	
+	if !visible:
+		return
+	if !can_build:
+		return
+	else:
+		can_build = false
+		var cell = tilemaplayer.local_to_map(tilemaplayer.to_local(mouse_pos))
+		tilemaplayer.set_cells_terrain_connect([cell], 0, 0)
+		animation_player.play("build_right")
+		await animation_player.animation_finished
+		can_build = true
 
-func place_build() -> void:
-	pass
+func destroy() -> void:
+	var mouse_pos = get_global_mouse_position()
+	
+	if !visible:
+		return
+	if !can_break:
+		return
+	else:
+		can_break = false
+		var cell = tilemaplayer.local_to_map(tilemaplayer.to_local(mouse_pos))
+		tilemaplayer.erase_cell(cell)
+		tilemaplayer.set_cells_terrain_connect([cell], 0, -1, false)
+		can_break = true

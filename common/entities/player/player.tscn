@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dv2y6ep4rn02m"]
+[gd_scene load_steps=42 format=3 uid="uid://dv2y6ep4rn02m"]
 
 [ext_resource type="Script" uid="uid://df5pt7f0i73bp" path="res://common/entities/player/player.gd" id="1_xgdtg"]
 [ext_resource type="Texture2D" uid="uid://xxbfq32q4hq3" path="res://assets/sprites/player/idle/idle1.png" id="1_ycebg"]
@@ -12,19 +12,22 @@
 [ext_resource type="Texture2D" uid="uid://dbx0rhyhej0fr" path="res://assets/sprites/player/run/run3.png" id="7_eb250"]
 [ext_resource type="Script" uid="uid://llcdxmdgm8mw" path="res://common/tools/axe/axe.gd" id="8_48pte"]
 [ext_resource type="Texture2D" uid="uid://c5yvw0wyh4133" path="res://assets/sprites/player/run/run4.png" id="8_hsph6"]
-[ext_resource type="AudioStream" uid="uid://dw846omue0ppl" path="res://assets/audio/tools/Hammer1.wav" id="8_k6j0s"]
 [ext_resource type="Texture2D" uid="uid://q3h0c0lj3rk4" path="res://assets/sprites/axe/axe.png" id="8_v4x7u"]
 [ext_resource type="Texture2D" uid="uid://dd5lq4sou3o2t" path="res://assets/sprites/player/run/run5.png" id="9_37dba"]
 [ext_resource type="Texture2D" uid="uid://b7w2tn5ynbopx" path="res://assets/sprites/axe/outline.png" id="9_48pte"]
-[ext_resource type="AudioStream" uid="uid://dqa24t8tulb17" path="res://assets/audio/WoodSnap5.wav" id="9_f6auq"]
 [ext_resource type="Texture2D" uid="uid://2vaevac80al" path="res://assets/sprites/player/run/run6.png" id="10_2s4ah"]
 [ext_resource type="Shader" uid="uid://cchugkbmna244" path="res://shaders/posterization.gdshader" id="11_k1tyo"]
 [ext_resource type="Texture2D" uid="uid://bc4vb34dhmgvk" path="res://assets/sprites/player/run/run7.png" id="11_tnw0h"]
 [ext_resource type="Texture2D" uid="uid://3aivrksfkkb1" path="res://assets/sprites/player/run/run8.png" id="12_nvl7w"]
+[ext_resource type="Texture2D" uid="uid://rkgd7itenbif" path="res://assets/sprites/player/swim/swim1.png" id="13_eb250"]
+[ext_resource type="Texture2D" uid="uid://cmtifkdswu36e" path="res://assets/sprites/player/swim/swim2.png" id="14_hsph6"]
+[ext_resource type="Texture2D" uid="uid://ot1hn7781o3s" path="res://assets/sprites/player/swim/swim3.png" id="15_37dba"]
 [ext_resource type="Texture2D" uid="uid://b3borbefyc5ns" path="res://assets/sprites/ui/cursor.png" id="16_mp3el"]
 [ext_resource type="Script" uid="uid://3yx1nori2cxf" path="res://common/HUD/cursor.gd" id="17_h7vm3"]
+[ext_resource type="AudioStream" uid="uid://cwswds2xek8hp" path="res://assets/audio/DesignedAxe3.wav" id="21_ar851"]
 [ext_resource type="Texture2D" uid="uid://g7myi0geydj6" path="res://assets/sprites/ui/wood.png" id="24_6p6t1"]
 [ext_resource type="FontFile" uid="uid://c042yjp2el708" path="res://assets/fonts/m3x6.ttf" id="25_ffvmj"]
+[ext_resource type="Texture2D" uid="uid://bq6yy754bthyq" path="res://assets/sprites/particles/water_ripple/water_ripple1.png" id="28_hsph6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fipa4"]
 animations = [{
@@ -70,6 +73,20 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_eb250")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_hsph6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_37dba")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ycebg"]
@@ -114,18 +131,6 @@ tracks/2/keys = {
 "update": 0,
 "values": [0.0]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../../Hammer/HammerNail1:playing")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_h7vm3"]
 resource_name = "build_right"
@@ -165,18 +170,6 @@ tracks/2/keys = {
 "update": 0,
 "values": [0.0, 1.150172, 0.0]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../../Hammer/HammerNail1:playing")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k7637"]
 _data = {
@@ -189,16 +182,117 @@ font = ExtResource("25_ffvmj")
 outline_size = 4
 outline_color = Color(0.07450981, 0.07450981, 0.07450981, 1)
 
+[sub_resource type="Animation" id="Animation_ffvmj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DesignedAxe3:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6p6t1"]
+resource_name = "swing"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.04903527, 0.101339564, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -1.5623068, 0.89593446, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DesignedAxe3:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.09807054),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.049960047, 0.10130787, 0.16792126),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1), Vector2(1, 1.5), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eb250"]
+_data = {
+&"RESET": SubResource("Animation_ffvmj"),
+&"swing": SubResource("Animation_6p6t1")
+}
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e2qll"]
 shader = ExtResource("11_k1tyo")
 shader_parameter/dither_strength = 0.05
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hsph6"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_37dba"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_2s4ah"]
+offsets = PackedFloat32Array(0, 0.53496504, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_xgdtg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+z_as_relative = false
 sprite_frames = SubResource("SpriteFrames_fipa4")
-animation = &"idle"
+animation = &"swim"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -209,7 +303,6 @@ shape = SubResource("CapsuleShape2D_ycebg")
 position_smoothing_enabled = true
 
 [node name="Hammer" type="Node2D" parent="."]
-visible = false
 position = Vector2(-2, 0)
 script = ExtResource("5_2ej7x")
 
@@ -222,12 +315,6 @@ offset = Vector2(3, -1)
 z_index = -2
 position = Vector2(3, -1)
 texture = ExtResource("6_2ej7x")
-
-[node name="HammerNail1" type="AudioStreamPlayer" parent="Hammer"]
-stream = ExtResource("8_k6j0s")
-
-[node name="WoodSnap5" type="AudioStreamPlayer" parent="Hammer"]
-stream = ExtResource("9_f6auq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Hammer"]
 root_node = NodePath("../../HUD/Cursor")
@@ -254,7 +341,7 @@ text = "0"
 label_settings = SubResource("LabelSettings_eb250")
 
 [node name="Axe" type="Node2D" parent="."]
-visible = false
+z_index = 1
 position = Vector2(-2, 0)
 script = ExtResource("8_48pte")
 
@@ -267,7 +354,21 @@ z_index = -1
 position = Vector2(3, -1)
 texture = ExtResource("9_48pte")
 
+[node name="RayCast2D" type="RayCast2D" parent="Axe"]
+position = Vector2(6, -2)
+target_position = Vector2(10, 0)
+hit_from_inside = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Axe"]
+libraries = {
+&"": SubResource("AnimationLibrary_eb250")
+}
+
+[node name="DesignedAxe3" type="AudioStreamPlayer" parent="Axe"]
+stream = ExtResource("21_ar851")
+
 [node name="PostProcessing" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Posterization" type="ColorRect" parent="PostProcessing"]
 material = SubResource("ShaderMaterial_e2qll")
@@ -283,3 +384,18 @@ grow_vertical = 2
 texture = ExtResource("16_mp3el")
 hframes = 3
 script = ExtResource("17_h7vm3")
+
+[node name="Particles" type="Node2D" parent="."]
+
+[node name="WaterRipple" type="CPUParticles2D" parent="Particles"]
+material = SubResource("CanvasItemMaterial_hsph6")
+amount = 4
+texture = ExtResource("28_hsph6")
+lifetime = 2.5
+gravity = Vector2(0, 0)
+scale_amount_min = 0.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_37dba")
+color = Color(0.2509804, 0.78039217, 1, 1)
+color_ramp = SubResource("Gradient_2s4ah")
+anim_speed_max = 2.0
