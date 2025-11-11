@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://enbe11705n22"]
+
+[ext_resource type="Texture2D" uid="uid://ggnybniiu06p" path="res://assets/sprites/nature/grass.png" id="1_ova5m"]
+[ext_resource type="Script" uid="uid://brlglvnm42dvy" path="res://common/reactive/reactive_foliage.gd" id="1_ps3qo"]
+[ext_resource type="Shader" uid="uid://81c4upebngfg" path="res://shaders/ReactiveFoliage.gdshader" id="2_rdyjh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c7i6a"]
+resource_local_to_scene = true
+shader = ExtResource("2_rdyjh")
+shader_parameter/skew = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1pvha"]
+size = Vector2(7, 7)
+
+[node name="ReactiveGrass" type="Area2D"]
+script = ExtResource("1_ps3qo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+material = SubResource("ShaderMaterial_c7i6a")
+texture = ExtResource("1_ova5m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_1pvha")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

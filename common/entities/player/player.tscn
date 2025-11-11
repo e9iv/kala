@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dv2y6ep4rn02m"]
+[gd_scene load_steps=65 format=3 uid="uid://dv2y6ep4rn02m"]
 
 [ext_resource type="Script" uid="uid://df5pt7f0i73bp" path="res://common/entities/player/player.gd" id="1_xgdtg"]
 [ext_resource type="Texture2D" uid="uid://xxbfq32q4hq3" path="res://assets/sprites/player/idle/idle1.png" id="1_ycebg"]
@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://dd5lq4sou3o2t" path="res://assets/sprites/player/run/run5.png" id="9_37dba"]
 [ext_resource type="Texture2D" uid="uid://b7w2tn5ynbopx" path="res://assets/sprites/axe/outline.png" id="9_48pte"]
 [ext_resource type="Texture2D" uid="uid://2vaevac80al" path="res://assets/sprites/player/run/run6.png" id="10_2s4ah"]
-[ext_resource type="Shader" uid="uid://cchugkbmna244" path="res://shaders/posterization.gdshader" id="11_k1tyo"]
 [ext_resource type="Texture2D" uid="uid://bc4vb34dhmgvk" path="res://assets/sprites/player/run/run7.png" id="11_tnw0h"]
 [ext_resource type="Texture2D" uid="uid://3aivrksfkkb1" path="res://assets/sprites/player/run/run8.png" id="12_nvl7w"]
 [ext_resource type="Texture2D" uid="uid://rkgd7itenbif" path="res://assets/sprites/player/swim/swim1.png" id="13_eb250"]
@@ -27,7 +26,28 @@
 [ext_resource type="AudioStream" uid="uid://cwswds2xek8hp" path="res://assets/audio/DesignedAxe3.wav" id="21_ar851"]
 [ext_resource type="Texture2D" uid="uid://g7myi0geydj6" path="res://assets/sprites/ui/wood.png" id="24_6p6t1"]
 [ext_resource type="FontFile" uid="uid://c042yjp2el708" path="res://assets/fonts/m3x6.ttf" id="25_ffvmj"]
+[ext_resource type="Texture2D" uid="uid://yk4jwf34ed6c" path="res://assets/sprites/ui/heart.png" id="28_37dba"]
 [ext_resource type="Texture2D" uid="uid://bq6yy754bthyq" path="res://assets/sprites/particles/water_ripple/water_ripple1.png" id="28_hsph6"]
+[ext_resource type="AudioStream" uid="uid://cjc07njb3ek4d" path="res://assets/audio/footsteps/Footsteps_Sand/Footsteps_Sand_Run/Footsteps_Sand_Run_01.wav" id="29_ksbgn"]
+[ext_resource type="AudioStream" uid="uid://b71w0j1nalp31" path="res://assets/audio/footsteps/Footsteps_Sand/Footsteps_Sand_Run/Footsteps_Sand_Run_02.wav" id="30_glk6v"]
+[ext_resource type="AudioStream" uid="uid://dtgpqormchapb" path="res://assets/audio/footsteps/Footsteps_Sand/Footsteps_Sand_Run/Footsteps_Sand_Run_03.wav" id="31_v5ygh"]
+[ext_resource type="AudioStream" uid="uid://2xie2jnklgr6" path="res://assets/audio/footsteps/Footsteps_Sand/Footsteps_Sand_Run/Footsteps_Sand_Run_04.wav" id="32_cmvix"]
+[ext_resource type="AudioStream" uid="uid://dbw030bfsk60o" path="res://assets/audio/footsteps/Footsteps_Sand/Footsteps_Sand_Run/Footsteps_Sand_Run_05.wav" id="33_ebkuc"]
+[ext_resource type="AudioStream" uid="uid://c7ytjgvw2av84" path="res://assets/audio/footsteps/Footsteps_Water/Footsteps_Water_Run/Footsteps_Water_Run_01.wav" id="34_atmj2"]
+[ext_resource type="AudioStream" uid="uid://bclux2mnvkfa6" path="res://assets/audio/footsteps/Footsteps_Water/Footsteps_Water_Run/Footsteps_Water_Run_02.wav" id="35_808th"]
+[ext_resource type="AudioStream" uid="uid://df3ncjvyh62cg" path="res://assets/audio/footsteps/Footsteps_Water/Footsteps_Water_Run/Footsteps_Water_Run_03.wav" id="36_tqu4p"]
+[ext_resource type="AudioStream" uid="uid://bp4yqnoird3bb" path="res://assets/audio/footsteps/Footsteps_Water/Footsteps_Water_Run/Footsteps_Water_Run_04.wav" id="37_12ooi"]
+[ext_resource type="AudioStream" uid="uid://dp76thdslj3ke" path="res://assets/audio/footsteps/Footsteps_Water/Footsteps_Water_Run/Footsteps_Water_Run_05.wav" id="38_q46sx"]
+[ext_resource type="AudioStream" uid="uid://blmp4it4aj0qt" path="res://assets/audio/footsteps/Footsteps_Wood/Footsteps_Wood_Run/Footsteps_Wood_Run_01.wav" id="39_tnk8p"]
+[ext_resource type="AudioStream" uid="uid://defgn310p2l8f" path="res://assets/audio/footsteps/Footsteps_Wood/Footsteps_Wood_Run/Footsteps_Wood_Run_02.wav" id="40_lkq3d"]
+[ext_resource type="AudioStream" uid="uid://bgtcx4fqrir4c" path="res://assets/audio/footsteps/Footsteps_Wood/Footsteps_Wood_Run/Footsteps_Wood_Run_03.wav" id="41_x5dt4"]
+[ext_resource type="AudioStream" uid="uid://bemgu64i5ivci" path="res://assets/audio/footsteps/Footsteps_Wood/Footsteps_Wood_Run/Footsteps_Wood_Run_04.wav" id="42_sxx6u"]
+[ext_resource type="AudioStream" uid="uid://m153x27dly8v" path="res://assets/audio/footsteps/Footsteps_Wood/Footsteps_Wood_Run/Footsteps_Wood_Run_05.wav" id="43_56moo"]
+[ext_resource type="AudioStream" uid="uid://t84gthj6f8lo" path="res://assets/audio/footsteps/Footsteps_Grass/Footsteps_Grass_Run/Footsteps_Grass_Run_01.wav" id="44_atmj2"]
+[ext_resource type="AudioStream" uid="uid://djjcrf6lvqvdp" path="res://assets/audio/footsteps/Footsteps_Grass/Footsteps_Grass_Run/Footsteps_Grass_Run_02.wav" id="45_808th"]
+[ext_resource type="AudioStream" uid="uid://ehc60ctddwiy" path="res://assets/audio/footsteps/Footsteps_Grass/Footsteps_Grass_Run/Footsteps_Grass_Run_03.wav" id="46_tqu4p"]
+[ext_resource type="AudioStream" uid="uid://ifoq56dlhrrs" path="res://assets/audio/footsteps/Footsteps_Grass/Footsteps_Grass_Run/Footsteps_Grass_Run_04.wav" id="47_12ooi"]
+[ext_resource type="AudioStream" uid="uid://baax8xmib14fe" path="res://assets/audio/footsteps/Footsteps_Grass/Footsteps_Grass_Run/Footsteps_Grass_Run_05.wav" id="48_q46sx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fipa4"]
 animations = [{
@@ -177,11 +197,6 @@ _data = {
 &"build_right": SubResource("Animation_h7vm3")
 }
 
-[sub_resource type="LabelSettings" id="LabelSettings_eb250"]
-font = ExtResource("25_ffvmj")
-outline_size = 4
-outline_color = Color(0.07450981, 0.07450981, 0.07450981, 1)
-
 [sub_resource type="Animation" id="Animation_ffvmj"]
 length = 0.001
 tracks/0/type = "value"
@@ -267,9 +282,10 @@ _data = {
 &"swing": SubResource("Animation_6p6t1")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_e2qll"]
-shader = ExtResource("11_k1tyo")
-shader_parameter/dither_strength = 0.05
+[sub_resource type="LabelSettings" id="LabelSettings_eb250"]
+font = ExtResource("25_ffvmj")
+outline_size = 4
+outline_color = Color(0.07450981, 0.07450981, 0.07450981, 1)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hsph6"]
 particles_animation = true
@@ -285,8 +301,45 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.53496504, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_miw4q"]
+streams_count = 5
+stream_0/stream = ExtResource("29_ksbgn")
+stream_1/stream = ExtResource("30_glk6v")
+stream_2/stream = ExtResource("31_v5ygh")
+stream_3/stream = ExtResource("32_cmvix")
+stream_4/stream = ExtResource("33_ebkuc")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2ay4h"]
+streams_count = 5
+stream_0/stream = ExtResource("34_atmj2")
+stream_1/stream = ExtResource("35_808th")
+stream_2/stream = ExtResource("36_tqu4p")
+stream_3/stream = ExtResource("37_12ooi")
+stream_4/stream = ExtResource("38_q46sx")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_x27q0"]
+streams_count = 5
+stream_0/stream = ExtResource("39_tnk8p")
+stream_1/stream = ExtResource("40_lkq3d")
+stream_2/stream = ExtResource("41_x5dt4")
+stream_3/stream = ExtResource("42_sxx6u")
+stream_4/stream = ExtResource("43_56moo")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tnk8p"]
+streams_count = 5
+stream_0/stream = ExtResource("44_atmj2")
+stream_1/stream = ExtResource("45_808th")
+stream_2/stream = ExtResource("46_tqu4p")
+stream_3/stream = ExtResource("47_12ooi")
+stream_4/stream = ExtResource("48_q46sx")
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("water_ripple", "sand_sfx", "water_sfx", "wood_sfx", "grass_sfx") groups=["Player"]]
 script = ExtResource("1_xgdtg")
+water_ripple = NodePath("Particles/WaterRipple")
+sand_sfx = NodePath("Footsteps/Sand")
+water_sfx = NodePath("Footsteps/Water")
+wood_sfx = NodePath("Footsteps/Wood")
+grass_sfx = NodePath("Footsteps/Grass")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
@@ -301,8 +354,10 @@ shape = SubResource("CapsuleShape2D_ycebg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [node name="Hammer" type="Node2D" parent="."]
+visible = false
 position = Vector2(-2, 0)
 script = ExtResource("5_2ej7x")
 
@@ -324,21 +379,6 @@ libraries = {
 
 [node name="BuildModeHUD" type="CanvasLayer" parent="Hammer"]
 visible = false
-
-[node name="WoodCounter" type="HBoxContainer" parent="Hammer/BuildModeHUD"]
-offset_left = 8.0
-offset_right = 48.0
-offset_bottom = 23.0
-
-[node name="TextureRect" type="TextureRect" parent="Hammer/BuildModeHUD/WoodCounter"]
-layout_mode = 2
-texture = ExtResource("24_6p6t1")
-stretch_mode = 3
-
-[node name="Label" type="Label" parent="Hammer/BuildModeHUD/WoodCounter"]
-layout_mode = 2
-text = "0"
-label_settings = SubResource("LabelSettings_eb250")
 
 [node name="Axe" type="Node2D" parent="."]
 z_index = 1
@@ -367,23 +407,48 @@ libraries = {
 [node name="DesignedAxe3" type="AudioStreamPlayer" parent="Axe"]
 stream = ExtResource("21_ar851")
 
-[node name="PostProcessing" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="Posterization" type="ColorRect" parent="PostProcessing"]
-material = SubResource("ShaderMaterial_e2qll")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="Cursor" type="Sprite2D" parent="HUD"]
+z_index = 4096
 texture = ExtResource("16_mp3el")
 hframes = 3
 script = ExtResource("17_h7vm3")
+
+[node name="HealthContainer" type="HBoxContainer" parent="HUD"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="Sprite2D" parent="HUD/HealthContainer"]
+position = Vector2(8, 81)
+texture = ExtResource("28_37dba")
+hframes = 3
+
+[node name="TextureRect2" type="Sprite2D" parent="HUD/HealthContainer"]
+position = Vector2(17, 81)
+texture = ExtResource("28_37dba")
+hframes = 3
+
+[node name="TextureRect3" type="Sprite2D" parent="HUD/HealthContainer"]
+position = Vector2(26, 81)
+texture = ExtResource("28_37dba")
+hframes = 3
+frame = 1
+
+[node name="WoodCounter" type="HBoxContainer" parent="HUD"]
+offset_left = 4.0
+offset_right = 44.0
+offset_bottom = 23.0
+
+[node name="TextureRect" type="TextureRect" parent="HUD/WoodCounter"]
+layout_mode = 2
+texture = ExtResource("24_6p6t1")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="HUD/WoodCounter"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_eb250")
 
 [node name="Particles" type="Node2D" parent="."]
 
@@ -391,11 +456,27 @@ script = ExtResource("17_h7vm3")
 material = SubResource("CanvasItemMaterial_hsph6")
 amount = 4
 texture = ExtResource("28_hsph6")
-lifetime = 2.5
+randomness = 1.0
 gravity = Vector2(0, 0)
 scale_amount_min = 0.0
 scale_amount_max = 3.0
 scale_amount_curve = SubResource("Curve_37dba")
-color = Color(0.2509804, 0.78039217, 1, 1)
+color = Color(0, 0.59607846, 0.8627451, 1)
 color_ramp = SubResource("Gradient_2s4ah")
 anim_speed_max = 2.0
+
+[node name="Footsteps" type="Node2D" parent="."]
+
+[node name="Sand" type="AudioStreamPlayer2D" parent="Footsteps"]
+stream = SubResource("AudioStreamRandomizer_miw4q")
+
+[node name="Water" type="AudioStreamPlayer2D" parent="Footsteps"]
+stream = SubResource("AudioStreamRandomizer_2ay4h")
+
+[node name="Wood" type="AudioStreamPlayer2D" parent="Footsteps"]
+stream = SubResource("AudioStreamRandomizer_x27q0")
+
+[node name="Grass" type="AudioStreamPlayer2D" parent="Footsteps"]
+stream = SubResource("AudioStreamRandomizer_tnk8p")
+
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_sprite_frame_changed"]

@@ -10,5 +10,12 @@
 y_sort_enabled = true
 texture = ExtResource("1_uxr24")
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 0.13725491)
+z_index = -1
+y_sort_enabled = true
+position = Vector2(1, 1)
+texture = ExtResource("1_uxr24")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_jufvl")

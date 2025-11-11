@@ -7,11 +7,10 @@ const WOOD_SCENE = preload("uid://doodb5wrshrrw")
 
 var health: int = 3
 
-var r = randi_range(1, 5)
-
 func take_damage():
 	health -= 1
 	print("Tree:", health)
+	anim.play("get_hit")
 	if health == 0:
 		anim.play("timber")
 		await anim.animation_finished
@@ -20,7 +19,8 @@ func take_damage():
 		queue_free()
 
 func spawn_wood():
-	for times in range(r):
+	var r = randi_range(1, 5)
+	for times in r:
 		var wood = WOOD_SCENE.instantiate()
 		wood.position = self.position
-		add_child(wood)
+		get_parent().add_child(wood)

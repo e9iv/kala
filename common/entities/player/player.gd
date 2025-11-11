@@ -14,8 +14,15 @@ extends CharacterBody2D
 
 @export_group("Particles")
 @export var water_ripple: CPUParticles2D
+@export_group("Footsteps")
+@export var sand_sfx: AudioStreamPlayer2D
+@export var water_sfx: AudioStreamPlayer2D
+@export var wood_sfx: AudioStreamPlayer2D
+@export var grass_sfx: AudioStreamPlayer2D
 
 enum State { IDLE, RUN, SWIM }
+
+var footsteps_frames: Array = [0, 2, 4, 6]
 
 var current_state := State.IDLE
 var current_speed: float = speed
@@ -39,7 +46,7 @@ func update_state() -> void:
 	var tile_data = tml.get_cell_tile_data(tile_pos)
 	
 	# Check if in water first
-	if tile_data and tile_data.get_custom_data("water"):
+	if tile_data and tile_data.get_custom_data("type") == "water":
 		current_state = State.SWIM
 		current_speed = swim_speed
 	# Then check if moving
@@ -80,3 +87,21 @@ func movement(delta: float) -> void:
 		velocity.y = move_toward(velocity.y, input_vector.y * current_speed, accel * delta)
 	else:
 		velocity.y = move_toward(velocity.y, 0, decel * delta)
+
+func player_walking_on() -> void:
+	var tile_pos = tml.local_to_map(tml.to_local(global_position))
+	var tile_data = tml.get_cell_tile_data(tile_pos)
+	
+	match tile_data.get_custom_data("type"):
+		"water":
+			water_sfx.play()
+		"sand":
+			sand_sfx.play()
+		"wood":
+			wood_sfx.play()
+		"grass":
+			grass_sfx.play()
+
+func _on_sprite_frame_changed() -> void:
+	if current_state == State.RUN and sprite.frame in footsteps_frames:
+		player_walking_on()

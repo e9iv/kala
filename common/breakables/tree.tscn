@@ -1,7 +1,28 @@
-[gd_scene load_steps=7 format=3 uid="uid://dl3gihuycqwwp"]
+[gd_scene load_steps=13 format=3 uid="uid://dl3gihuycqwwp"]
 
 [ext_resource type="Script" uid="uid://vgcongqof6xa" path="res://common/breakables/tree.gd" id="1_8ptrl"]
-[ext_resource type="Texture2D" uid="uid://cucr4dnx5jyfh" path="res://assets/sprites/trees/palm.png" id="2_tr2l2"]
+[ext_resource type="Texture2D" uid="uid://cucr4dnx5jyfh" path="res://assets/sprites/nature/trees/palm.png" id="2_tr2l2"]
+[ext_resource type="Shader" uid="uid://bst0aunulojs7" path="res://shaders/FoliageWindSway.gdshader" id="2_yxphm"]
+
+[sub_resource type="Gradient" id="Gradient_tr2l2"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yxphm"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_p6dsr"]
+noise = SubResource("FastNoiseLite_yxphm")
+color_ramp = SubResource("Gradient_tr2l2")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bd2nm"]
+resource_local_to_scene = true
+shader = ExtResource("2_yxphm")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_p6dsr")
+shader_parameter/amplitude = 0.2
+shader_parameter/time_scale = 0.04
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fhut1"]
 radius = 4.1231055
@@ -31,6 +52,46 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8ptrl"]
+resource_name = "get_hit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.11, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.21438383, -0.42659444, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0483048, 0.11092213, 0.19679733),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.25, 1), Vector2(1, 1.25), Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_f62u0"]
@@ -64,6 +125,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_acv1o"]
 _data = {
 &"RESET": SubResource("Animation_acv1o"),
+&"get_hit": SubResource("Animation_8ptrl"),
 &"timber": SubResource("Animation_f62u0")
 }
 
@@ -71,10 +133,20 @@ _data = {
 script = ExtResource("1_8ptrl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-y_sort_enabled = true
+material = SubResource("ShaderMaterial_bd2nm")
 position = Vector2(0, 8)
 texture = ExtResource("2_tr2l2")
 offset = Vector2(0, -8)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+visible = false
+self_modulate = Color(0, 0, 0, 0.3137255)
+z_index = 6
+y_sort_enabled = true
+position = Vector2(0, 16)
+texture = ExtResource("2_tr2l2")
+offset = Vector2(0, -8)
+flip_v = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
