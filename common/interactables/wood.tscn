@@ -1,21 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://doodb5wrshrrw"]
+[gd_scene load_steps=5 format=3 uid="uid://doodb5wrshrrw"]
 
+[ext_resource type="Script" uid="uid://c2fmt5mjcnepw" path="res://common/interactables/wood.gd" id="1_jufvl"]
 [ext_resource type="Texture2D" uid="uid://g7myi0geydj6" path="res://assets/sprites/ui/wood.png" id="1_uxr24"]
+[ext_resource type="AudioStream" uid="uid://csob3jnrm4f1f" path="res://assets/audio/wood_small_gather.wav" id="3_gvdsi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jufvl"]
 
 [node name="Wood" type="Area2D"]
+script = ExtResource("1_jufvl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true
 texture = ExtResource("1_uxr24")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-self_modulate = Color(0, 0, 0, 0.13725491)
-z_index = -1
-y_sort_enabled = true
-position = Vector2(1, 1)
-texture = ExtResource("1_uxr24")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_jufvl")
+
+[node name="WoodSmallGather" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_gvdsi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

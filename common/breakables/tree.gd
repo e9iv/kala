@@ -19,8 +19,16 @@ func take_damage():
 		queue_free()
 
 func spawn_wood():
-	var r = randi_range(1, 5)
+	var r = randi_range(1, 3)
+	var spawn_radius = 8.0  # Radius around the tree to spawn wood
+	
 	for times in r:
 		var wood = WOOD_SCENE.instantiate()
-		wood.position = self.position
+		
+		# Generate random offset around the tree
+		var angle = randf() * TAU  # Random angle in radians (0 to 2π)
+		var distance = randf_range(8.0, spawn_radius)  # Random distance from tree
+		var offset = Vector2(cos(angle), sin(angle)) * distance
+		
+		wood.position = self.position + offset
 		get_parent().add_child(wood)
