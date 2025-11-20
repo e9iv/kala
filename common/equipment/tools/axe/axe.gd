@@ -44,5 +44,7 @@ func swing() -> void:
 	if !collider.is_in_group("Breakables"):
 		return
 	if collider.has_method("take_damage"):
+		if collider.health == 0:
+			return
 		anim.play("swing")
 		collider.take_damage()

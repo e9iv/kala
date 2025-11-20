@@ -78,8 +78,8 @@ func toggle_build_mode() -> void:
 	if has_node("BuildModeHUD"):
 		$BuildModeHUD.visible = is_active
 	
-	if has_node("../Axe"):
-		$"../Axe".visible = not is_active
+	if has_node("../Equipment"):
+		$"../Equipment".visible = not is_active
 	
 	# Clear preview when exiting build mode
 	if not is_active:

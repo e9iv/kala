@@ -41,5 +41,5 @@ func place_trees() -> void:
 			var n = tree_noise.get_noise_2d(x, y)
 			if n > 0.4:  # Adjust threshold to control tree density
 				tree_layer.set_cell(tile_pos, 3, Vector2i.ZERO, 1)
-			elif n > 0.6:
+			elif tile_data.get_custom_data("type") == "grass" and n > 0.2:
 				tree_layer.set_cell(tile_pos, 3, Vector2i.ZERO, 2)

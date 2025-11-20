@@ -537,8 +537,8 @@ shader_parameter/noise_texture = SubResource("NoiseTexture2D_58uw5")
 shader_parameter/cloud_speed = 0.010000000475
 shader_parameter/cloud_scale = 1.01000004471512
 shader_parameter/cloud_density = 0.5
-shader_parameter/cloud_sharpness = 0.10000000475
-shader_parameter/cloud_color = Color(0.4117647, 0.7137255, 0.8392157, 0.39215687)
+shader_parameter/cloud_sharpness = 0.050000002375
+shader_parameter/cloud_color = Color(0.3015297, 0.6004532, 0.71864206, 0.37254903)
 
 [sub_resource type="Environment" id="Environment_acv1o"]
 background_mode = 3
@@ -553,9 +553,6 @@ y_sort_enabled = true
 [node name="Player" parent="." node_paths=PackedStringArray("tml") instance=ExtResource("2_48j31")]
 position = Vector2(1024, 1024)
 tml = NodePath("../TileMapManager/TerrainLayer")
-
-[node name="AnimatedSprite2D" parent="Player" index="0"]
-animation = &"idle"
 
 [node name="Hammer" parent="Player" index="3" node_paths=PackedStringArray("tilemaplayer", "preview_layer")]
 tilemaplayer = NodePath("../../TileMapManager/RaftLayer")

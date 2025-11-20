@@ -14,13 +14,14 @@ extends CharacterBody2D
 
 @export_group("Particles")
 @export var water_ripple: CPUParticles2D
+@export var smoke: CPUParticles2D
 @export_group("Footsteps")
 @export var sand_sfx: AudioStreamPlayer2D
 @export var water_sfx: AudioStreamPlayer2D
 @export var wood_sfx: AudioStreamPlayer2D
 @export var grass_sfx: AudioStreamPlayer2D
 
-enum State { IDLE, RUN, SWIM }
+enum State { IDLE, RUN, SWIM, ON_RAFT }
 
 var footsteps_frames: Array = [0, 2, 4, 6]
 
@@ -49,6 +50,10 @@ func update_state() -> void:
 	if tile_data and tile_data.get_custom_data("type") == "water":
 		current_state = State.SWIM
 		current_speed = swim_speed
+	elif tile_data and tile_data.get_custom_data("type") == "wood":
+		current_state = State.ON_RAFT
+		current_speed = speed
+		
 	# Then check if moving
 	elif abs(velocity.x) > 0 or abs(velocity.y) > 0:
 		current_state = State.RUN
@@ -69,6 +74,8 @@ func handle_animation_and_particles() -> void:
 		State.SWIM:
 			sprite.play("swim")
 			water_ripple.emitting = true
+		State.ON_RAFT:
+			water_ripple.emitting = false
 
 func movement(delta: float) -> void:
 	var dir_x := Input.get_axis("left", "right")
@@ -97,10 +104,13 @@ func player_walking_on() -> void:
 			water_sfx.play()
 		"sand":
 			sand_sfx.play()
+			smoke.emitting = true
 		"wood":
 			wood_sfx.play()
+			smoke.emitting = true
 		"grass":
 			grass_sfx.play()
+			smoke.emitting = true
 
 func _on_sprite_frame_changed() -> void:
 	if current_state == State.RUN and sprite.frame in footsteps_frames:

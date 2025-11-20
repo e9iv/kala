@@ -1,16 +1,16 @@
-[gd_scene load_steps=68 format=3 uid="uid://dv2y6ep4rn02m"]
+[gd_scene load_steps=84 format=3 uid="uid://dv2y6ep4rn02m"]
 
 [ext_resource type="Script" uid="uid://df5pt7f0i73bp" path="res://common/entities/player/player.gd" id="1_xgdtg"]
 [ext_resource type="Texture2D" uid="uid://xxbfq32q4hq3" path="res://assets/sprites/player/idle/idle1.png" id="1_ycebg"]
 [ext_resource type="Texture2D" uid="uid://6uvvrvdoirtw" path="res://assets/sprites/player/idle/idle2.png" id="2_xgdtg"]
 [ext_resource type="Texture2D" uid="uid://cpyqxdfjdohoo" path="res://assets/sprites/player/idle/idle3.png" id="3_1w84m"]
-[ext_resource type="Script" uid="uid://dsx3t7hcf6dme" path="res://common/tools/hammer/hammer.gd" id="5_2ej7x"]
+[ext_resource type="Script" uid="uid://dsx3t7hcf6dme" path="res://common/equipment/tools/hammer/hammer.gd" id="5_2ej7x"]
 [ext_resource type="Texture2D" uid="uid://crp7ntpxsiwax" path="res://assets/sprites/player/run/run1.png" id="5_6p6t1"]
 [ext_resource type="Texture2D" uid="uid://bc3anudoax8h6" path="res://assets/sprites/hammer/hammer.png" id="5_fipa4"]
 [ext_resource type="Texture2D" uid="uid://bf4l0xbhae5da" path="res://assets/sprites/hammer/outline.png" id="6_2ej7x"]
 [ext_resource type="Texture2D" uid="uid://y20l2fwhs3wx" path="res://assets/sprites/player/run/run2.png" id="6_ffvmj"]
 [ext_resource type="Texture2D" uid="uid://dbx0rhyhej0fr" path="res://assets/sprites/player/run/run3.png" id="7_eb250"]
-[ext_resource type="Script" uid="uid://llcdxmdgm8mw" path="res://common/tools/axe/axe.gd" id="8_48pte"]
+[ext_resource type="Script" uid="uid://llcdxmdgm8mw" path="res://common/equipment/tools/axe/axe.gd" id="8_48pte"]
 [ext_resource type="Texture2D" uid="uid://c5yvw0wyh4133" path="res://assets/sprites/player/run/run4.png" id="8_hsph6"]
 [ext_resource type="Texture2D" uid="uid://q3h0c0lj3rk4" path="res://assets/sprites/axe/axe.png" id="8_v4x7u"]
 [ext_resource type="Texture2D" uid="uid://dd5lq4sou3o2t" path="res://assets/sprites/player/run/run5.png" id="9_37dba"]
@@ -24,8 +24,10 @@
 [ext_resource type="Texture2D" uid="uid://b3borbefyc5ns" path="res://assets/sprites/ui/cursor.png" id="16_mp3el"]
 [ext_resource type="Script" uid="uid://3yx1nori2cxf" path="res://common/HUD/cursor.gd" id="17_h7vm3"]
 [ext_resource type="AudioStream" uid="uid://bxkrrjyf1uswt" path="res://assets/audio/tools/HammerNail1.wav" id="19_tqu4p"]
+[ext_resource type="Script" uid="uid://cjplnmfjdh8rm" path="res://common/equipment/equipment.gd" id="20_lkq3d"]
 [ext_resource type="AudioStream" uid="uid://cwswds2xek8hp" path="res://assets/audio/DesignedAxe3.wav" id="21_ar851"]
 [ext_resource type="Texture2D" uid="uid://g7myi0geydj6" path="res://assets/sprites/ui/wood.png" id="24_6p6t1"]
+[ext_resource type="Script" uid="uid://cvqg3o83lc7je" path="res://common/equipment/weapons/spear/spear.gd" id="24_tnk8p"]
 [ext_resource type="FontFile" uid="uid://c042yjp2el708" path="res://assets/fonts/m3x6.ttf" id="25_ffvmj"]
 [ext_resource type="Script" uid="uid://r38asq5e624w" path="res://common/HUD/wood_counter.gd" id="26_808th"]
 [ext_resource type="Texture2D" uid="uid://yk4jwf34ed6c" path="res://assets/sprites/ui/heart.png" id="28_37dba"]
@@ -36,6 +38,7 @@
 [ext_resource type="AudioStream" uid="uid://2xie2jnklgr6" path="res://assets/audio/footsteps/Footsteps_Sand/Footsteps_Sand_Run/Footsteps_Sand_Run_04.wav" id="32_cmvix"]
 [ext_resource type="AudioStream" uid="uid://dbw030bfsk60o" path="res://assets/audio/footsteps/Footsteps_Sand/Footsteps_Sand_Run/Footsteps_Sand_Run_05.wav" id="33_ebkuc"]
 [ext_resource type="AudioStream" uid="uid://c7ytjgvw2av84" path="res://assets/audio/footsteps/Footsteps_Water/Footsteps_Water_Run/Footsteps_Water_Run_01.wav" id="34_atmj2"]
+[ext_resource type="Texture2D" uid="uid://c3haks56vcgnq" path="res://assets/sprites/particles/smoke.png" id="35_56moo"]
 [ext_resource type="AudioStream" uid="uid://bclux2mnvkfa6" path="res://assets/audio/footsteps/Footsteps_Water/Footsteps_Water_Run/Footsteps_Water_Run_02.wav" id="35_808th"]
 [ext_resource type="AudioStream" uid="uid://df3ncjvyh62cg" path="res://assets/audio/footsteps/Footsteps_Water/Footsteps_Water_Run/Footsteps_Water_Run_03.wav" id="36_tqu4p"]
 [ext_resource type="AudioStream" uid="uid://bp4yqnoird3bb" path="res://assets/audio/footsteps/Footsteps_Water/Footsteps_Water_Run/Footsteps_Water_Run_04.wav" id="37_12ooi"]
@@ -50,6 +53,10 @@
 [ext_resource type="AudioStream" uid="uid://ehc60ctddwiy" path="res://assets/audio/footsteps/Footsteps_Grass/Footsteps_Grass_Run/Footsteps_Grass_Run_03.wav" id="46_tqu4p"]
 [ext_resource type="AudioStream" uid="uid://ifoq56dlhrrs" path="res://assets/audio/footsteps/Footsteps_Grass/Footsteps_Grass_Run/Footsteps_Grass_Run_04.wav" id="47_12ooi"]
 [ext_resource type="AudioStream" uid="uid://baax8xmib14fe" path="res://assets/audio/footsteps/Footsteps_Grass/Footsteps_Grass_Run/Footsteps_Grass_Run_05.wav" id="48_q46sx"]
+[ext_resource type="Texture2D" uid="uid://dleipyevkrwmj" path="res://assets/sprites/spear/spear.png" id="51_q46sx"]
+[ext_resource type="Texture2D" uid="uid://bopo2stu6ppkr" path="res://assets/sprites/spear/outline.png" id="52_tnk8p"]
+[ext_resource type="Texture2D" uid="uid://b2k5ehj3b5fjh" path="res://assets/sprites/ui/progress/ProgressBG.png" id="55_sxx6u"]
+[ext_resource type="Texture2D" uid="uid://cnctvl84lclfp" path="res://assets/sprites/ui/progress/Progress.png" id="56_56moo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fipa4"]
 animations = [{
@@ -223,6 +230,11 @@ _data = {
 &"build_right": SubResource("Animation_h7vm3")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_lkq3d"]
+font = ExtResource("25_ffvmj")
+outline_size = 4
+outline_color = Color(0.0742504, 0.0742504, 0.0742504, 1)
+
 [sub_resource type="Animation" id="Animation_ffvmj"]
 length = 0.001
 tracks/0/type = "value"
@@ -308,6 +320,152 @@ _data = {
 &"swing": SubResource("Animation_6p6t1")
 }
 
+[sub_resource type="Animation" id="Animation_sxx6u"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_56moo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_56moo"]
+_data = {
+&"RESET": SubResource("Animation_56moo"),
+&"attack": SubResource("Animation_sxx6u")
+}
+
+[sub_resource type="Animation" id="Animation_lkq3d"]
+resource_name = "idle"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../HealthContainer/TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(8, 81), Vector2(8, 80), Vector2(8, 81)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../HealthContainer/TextureRect2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(17, 81), Vector2(17, 80), Vector2(17, 81)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../HealthContainer/TextureRect3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(26, 81), Vector2(26, 80), Vector2(26, 81)]
+}
+
+[sub_resource type="Animation" id="Animation_x5dt4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../HealthContainer/TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 81)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../HealthContainer/TextureRect2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(17, 81)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../HealthContainer/TextureRect3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(26, 81)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sxx6u"]
+_data = {
+&"RESET": SubResource("Animation_x5dt4"),
+&"idle": SubResource("Animation_lkq3d")
+}
+
 [sub_resource type="LabelSettings" id="LabelSettings_eb250"]
 font = ExtResource("25_ffvmj")
 outline_size = 4
@@ -325,6 +483,10 @@ point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_2s4ah"]
 offsets = PackedFloat32Array(0, 0.53496504, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_56moo"]
+offsets = PackedFloat32Array(0, 0.5095238, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_miw4q"]
@@ -364,9 +526,13 @@ font = ExtResource("25_ffvmj")
 outline_size = 4
 outline_color = Color(0.0742504, 0.0742504, 0.0742504, 1)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("water_ripple", "sand_sfx", "water_sfx", "wood_sfx", "grass_sfx") groups=["Player"]]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sxx6u"]
+light_mode = 1
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("water_ripple", "smoke", "sand_sfx", "water_sfx", "wood_sfx", "grass_sfx") groups=["Player"]]
 script = ExtResource("1_xgdtg")
 water_ripple = NodePath("Particles/WaterRipple")
+smoke = NodePath("Particles/Smoke")
 sand_sfx = NodePath("Footsteps/Sand")
 water_sfx = NodePath("Footsteps/Water")
 wood_sfx = NodePath("Footsteps/Wood")
@@ -376,7 +542,7 @@ grass_sfx = NodePath("Footsteps/Grass")
 z_index = 1
 z_as_relative = false
 sprite_frames = SubResource("SpriteFrames_fipa4")
-animation = &"swim"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -412,35 +578,72 @@ libraries = {
 [node name="BuildModeHUD" type="CanvasLayer" parent="Hammer"]
 visible = false
 
+[node name="Label" type="Label" parent="Hammer/BuildModeHUD"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Build Mode"
+label_settings = SubResource("LabelSettings_lkq3d")
+
 [node name="HammerNail1" type="AudioStreamPlayer" parent="Hammer"]
 stream = ExtResource("19_tqu4p")
 
-[node name="Axe" type="Node2D" parent="."]
+[node name="Equipment" type="Node2D" parent="."]
+script = ExtResource("20_lkq3d")
+
+[node name="Axe" type="Node2D" parent="Equipment"]
+visible = false
 z_index = 1
 position = Vector2(-2, 0)
 script = ExtResource("8_48pte")
 
-[node name="Sprite2D" type="Sprite2D" parent="Axe"]
+[node name="Sprite2D" type="Sprite2D" parent="Equipment/Axe"]
 texture = ExtResource("8_v4x7u")
 offset = Vector2(3, -1)
 
-[node name="Sprite2D" type="Sprite2D" parent="Axe/Sprite2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Equipment/Axe/Sprite2D"]
 z_index = -1
 position = Vector2(3, -1)
 texture = ExtResource("9_48pte")
 
-[node name="RayCast2D" type="RayCast2D" parent="Axe"]
+[node name="RayCast2D" type="RayCast2D" parent="Equipment/Axe"]
 position = Vector2(6, -2)
 target_position = Vector2(10, 0)
 hit_from_inside = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Axe"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Equipment/Axe"]
 libraries = {
 &"": SubResource("AnimationLibrary_eb250")
 }
 
-[node name="DesignedAxe3" type="AudioStreamPlayer" parent="Axe"]
+[node name="DesignedAxe3" type="AudioStreamPlayer" parent="Equipment/Axe"]
 stream = ExtResource("21_ar851")
+
+[node name="Spear" type="Node2D" parent="Equipment"]
+z_index = 1
+script = ExtResource("24_tnk8p")
+
+[node name="Sprite2D" type="Sprite2D" parent="Equipment/Spear"]
+position = Vector2(-2, 0)
+texture = ExtResource("51_q46sx")
+offset = Vector2(4, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Equipment/Spear/Sprite2D"]
+z_index = -1
+position = Vector2(4, 2)
+texture = ExtResource("52_tnk8p")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Equipment/Spear"]
+libraries = {
+&"": SubResource("AnimationLibrary_56moo")
+}
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -470,6 +673,13 @@ texture = ExtResource("28_37dba")
 hframes = 3
 frame = 1
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/HealthContainer"]
+root_node = NodePath("../../WoodCounter")
+libraries = {
+&"": SubResource("AnimationLibrary_sxx6u")
+}
+autoplay = "idle"
+
 [node name="WoodCounter" type="HBoxContainer" parent="HUD"]
 offset_left = 4.0
 offset_right = 44.0
@@ -490,6 +700,7 @@ label_settings = SubResource("LabelSettings_eb250")
 
 [node name="WaterRipple" type="CPUParticles2D" parent="Particles"]
 material = SubResource("CanvasItemMaterial_hsph6")
+emitting = false
 amount = 4
 texture = ExtResource("28_hsph6")
 randomness = 1.0
@@ -500,6 +711,26 @@ scale_amount_curve = SubResource("Curve_37dba")
 color = Color(0, 0.59607846, 0.8627451, 1)
 color_ramp = SubResource("Gradient_2s4ah")
 anim_speed_max = 2.0
+
+[node name="Smoke" type="CPUParticles2D" parent="Particles"]
+position = Vector2(0, 3)
+emitting = false
+amount = 2
+texture = ExtResource("35_56moo")
+lifetime = 0.5
+one_shot = true
+randomness = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 5.0
+orbit_velocity_max = 0.2
+linear_accel_max = 13.75
+radial_accel_max = 8.75
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.5
+color_ramp = SubResource("Gradient_56moo")
 
 [node name="Footsteps" type="Node2D" parent="."]
 
@@ -532,5 +763,17 @@ grow_vertical = 2
 label_settings = SubResource("LabelSettings_808th")
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="Stamina" type="TextureProgressBar" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_sxx6u")
+offset_left = -4.0
+offset_top = -13.0
+offset_right = 4.0
+offset_bottom = -5.0
+value = 56.0
+fill_mode = 4
+texture_under = ExtResource("55_sxx6u")
+texture_progress = ExtResource("56_56moo")
 
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_sprite_frame_changed"]
